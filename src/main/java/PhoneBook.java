@@ -33,6 +33,10 @@ public class PhoneBook {
         return "Нет такого контакта.";
     }
 
+    public String findByName(String name) {
+        return null;
+    }
+
     protected class Contact {
         int id;
         String name;

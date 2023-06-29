@@ -54,4 +54,28 @@ public class PhoneBookTest {
 
         Assert.assertEquals(result, expected);
     }
+
+    @Test
+    public void findByNameTest() {
+        String name = "Катя", name_ = "Петя", number = "+79008007060", number_ = "+79008000000";
+        String expected = "Катя: +79008007060", result;
+        pb.add(name, number);
+        pb.add(name_, number_);
+
+        result = pb.findByName(name);
+
+        Assert.assertEquals(result, expected);
+    }
+
+    @Test
+    public void findByNameTestIfNot() {
+        String name = "Катя", name_ = "Петя", name__ = "Вася", number = "+79008007060", number_ = "+79008000000";
+        String expected = "Нет такого контакта.", result;
+        pb.add(name, number);
+        pb.add(name_, number_);
+
+        result = pb.findByName(name__);
+
+        Assert.assertEquals(result, expected);
+    }
 }
