@@ -34,7 +34,11 @@ public class PhoneBook {
     }
 
     public String findByName(String name) {
-        return null;
+        if (namesMap.containsKey(name)) {
+            int id = namesMap.get(name);
+            return contactMap.get(id).toString();
+        }
+        return "Нет такого контакта.";
     }
 
     protected class Contact {
