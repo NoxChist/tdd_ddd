@@ -85,7 +85,7 @@ public class PhoneBookTest {
     }
 
     @Test
-    public void printAllNamesTest() throws FileNotFoundException {
+    public void printAllNamesTest() {
         List<String> names = List.of("Юра", "Даша", "Артем", "Рома", "Ада"),
                 numbers = List.of("01", "02", "03", "04", "05");
         for (int i = 0; i < names.size(); i++) {

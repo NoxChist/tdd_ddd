@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
 
@@ -42,7 +44,14 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
-        System.out.println("Hello, world!");
+        List<String> nameList = namesMap
+                .keySet()
+                .stream()
+                .sorted()
+                .collect(Collectors.toList());
+        for (String name : nameList) {
+            System.out.println(name);
+        }
     }
 
     protected class Contact {
