@@ -2,6 +2,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.List;
+
 public class PhoneBookTest {
     PhoneBook pb;
 
@@ -75,6 +80,24 @@ public class PhoneBookTest {
         pb.add(name_, number_);
 
         result = pb.findByName(name__);
+
+        Assert.assertEquals(result, expected);
+    }
+
+    @Test
+    public void printAllNamesTest() throws FileNotFoundException {
+        List<String> names = List.of("Юра", "Даша", "Артем", "Рома", "Ада"),
+                numbers = List.of("01", "02", "03", "04", "05");
+        for (int i = 0; i < names.size(); i++) {
+            pb.add(names.get(i), numbers.get(i));
+        }
+        String result, expected = "Ада\r\nАртем\r\nДаша\r\nРома\r\nЮра\r\n";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        pb.printAllNames();
+        result = outputStream.toString();
 
         Assert.assertEquals(result, expected);
     }

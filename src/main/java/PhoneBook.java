@@ -41,6 +41,10 @@ public class PhoneBook {
         return "Нет такого контакта.";
     }
 
+    public void printAllNames() {
+        System.out.println("Hello, world!");
+    }
+
     protected class Contact {
         int id;
         String name;
