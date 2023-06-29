@@ -20,4 +20,8 @@ public class PhoneBook {
         }
         return namesMap.size();
     }
+
+    public String findByNumber(String number) {
+        return null;
+    }
 }
